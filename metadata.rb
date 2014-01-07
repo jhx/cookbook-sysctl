@@ -4,6 +4,7 @@ license           'Apache 2.0'
 description       'Configures sysctl'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
+name              'sysctl'
 version           '0.0.2'
 
 recipe 'sysctl', 'Configures sysctl kernel.pid_max value'
