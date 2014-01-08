@@ -1,3 +1,4 @@
+# coding: utf-8
 #
 # Author:: Joan Touzet (<joant@cloudant.com>)
 # Author:: Doc Walker <doc.walker@jameshardie.com>

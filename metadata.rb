@@ -1,3 +1,4 @@
+# coding: utf-8
 maintainer        'James Hardie Building Products, Inc.'
 maintainer_email  'doc.walker@jameshardie.com'
 license           'Apache 2.0'
