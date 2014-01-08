@@ -11,5 +11,5 @@ task :default => [:foodcritic]
 #-------------------------------------------------- cookbook lint/style checks
 desc 'Runs foodcritic lint tool against the cookbook.'
 task :foodcritic do
-  sh 'bundle exec foodcritic -f any .'
+  sh 'bundle exec foodcritic -t ~FC014 -f any .'
 end # task
