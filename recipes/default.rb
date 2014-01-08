@@ -51,4 +51,4 @@ ruby_block "configure #{file}" do
   end # block
   
   action :create
-end # ruby_block "configure #{file}"
+end # ruby_block
