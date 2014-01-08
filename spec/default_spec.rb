@@ -5,6 +5,6 @@ describe 'sysctl::default' do
   
   it 'should test ruby_block' do
     pending 'TODO: figure out how to test ruby_block'
-  end # it 'should test ruby_block'
-  
-end # describe 'sysctl::default'
+  end # it
+
+end # describe
