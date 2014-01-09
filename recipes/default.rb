@@ -31,7 +31,8 @@ ruby_block "configure #{file}" do
     f = Chef::Util::FileEdit.new(file)
     regex = /^kernel.pid_max.*/
     value = "kernel.pid_max = #{pid_max}"
-    comment = '# allow higher PIDs (instead of 2^15 to reduce rollover problems); may break some programs'
+    comment = '# allow higher PIDs (instead of 2^15 to reduce rollover ' +
+      'problems); may break some programs'
     f.search_file_replace_line(regex, value)
     f.insert_line_if_no_match(regex, "\n#{comment}\n#{value}")
     f.write_file
