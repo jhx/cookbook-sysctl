@@ -1,3 +1,4 @@
+# coding: utf-8
 #
 # Cookbook Name:: sysctl
 # Recipe:: default
@@ -30,25 +31,26 @@ ruby_block "configure #{file}" do
     f = Chef::Util::FileEdit.new(file)
     regex = /^kernel.pid_max.*/
     value = "kernel.pid_max = #{pid_max}"
-    comment = '# allow higher PIDs (instead of 2^15 to reduce rollover problems); may break some programs'
+    comment = '# allow higher PIDs (instead of 2^15 to reduce rollover ' +
+      'problems); may break some programs'
     f.search_file_replace_line(regex, value)
     f.insert_line_if_no_match(regex, "\n#{comment}\n#{value}")
     f.write_file
-    
+
     cmd = 'cat /proc/sys/kernel/pid_max'
     before = Chef::ShellOut.new(cmd)
     after = Chef::ShellOut.new(cmd)
     sysctl = Chef::ShellOut.new('/sbin/sysctl -p')
-    
+
     before.run_command
     Chef::Log.debug "kernel.pid_max = #{before.stdout} (before)"
-    
+
     Chef::Log.debug "Reload settings from #{file}"
     sysctl.run_command
-    
+
     after.run_command
     Chef::Log.debug "kernel.pid_max = #{after.stdout} (after)"
   end # block
-  
+
   action :create
 end # ruby_block

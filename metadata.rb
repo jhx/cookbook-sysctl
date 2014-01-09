@@ -1,3 +1,4 @@
+# coding: utf-8
 maintainer        'James Hardie Building Products, Inc.'
 maintainer_email  'doc.walker@jameshardie.com'
 license           'Apache 2.0'
@@ -10,6 +11,6 @@ version           '0.0.2'
 recipe 'sysctl', 'Configures sysctl kernel.pid_max value'
 
 attribute 'sysctl/kernel/pid_max',
-  :display_name => 'pid_max',
-  :description => 'PID allocation wrap value',
-  :default => '999999'
+          :display_name => 'pid_max',
+          :description  => 'PID allocation wrap value',
+          :default      => '999999'
