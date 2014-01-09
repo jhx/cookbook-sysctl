@@ -35,21 +35,21 @@ ruby_block "configure #{file}" do
     f.search_file_replace_line(regex, value)
     f.insert_line_if_no_match(regex, "\n#{comment}\n#{value}")
     f.write_file
-    
+
     cmd = 'cat /proc/sys/kernel/pid_max'
     before = Chef::ShellOut.new(cmd)
     after = Chef::ShellOut.new(cmd)
     sysctl = Chef::ShellOut.new('/sbin/sysctl -p')
-    
+
     before.run_command
     Chef::Log.debug "kernel.pid_max = #{before.stdout} (before)"
-    
+
     Chef::Log.debug "Reload settings from #{file}"
     sysctl.run_command
-    
+
     after.run_command
     Chef::Log.debug "kernel.pid_max = #{after.stdout} (after)"
   end # block
-  
+
   action :create
 end # ruby_block
