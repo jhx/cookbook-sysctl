@@ -4,4 +4,4 @@
 # Attributes:: default
 #
 
-default['sysctl']['kernel']['pid_max'] = 999999
+default['sysctl']['kernel']['pid_max'] = 999_999
