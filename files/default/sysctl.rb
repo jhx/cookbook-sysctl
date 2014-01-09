@@ -21,7 +21,7 @@ provides 'kernel/sysctl'
 require_plugin 'kernel'
 
 kernel[:sysctl] = Mash.new unless kernel[:sysctl]
-status, stdout, stderr = run_command(:command => 'sysctl -e -a')
+_status, stdout, _stderr = run_command(:command => 'sysctl -e -a')
 stdout.each_line do |line|
   fullkey, value = line.split(/[=:]/, 2).map { |i| i.strip }
   next if fullkey.nil?
